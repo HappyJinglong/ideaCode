@@ -23,7 +23,6 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="seckill" />
-        <module name="seckill (1)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
