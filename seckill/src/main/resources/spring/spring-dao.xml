@@ -13,7 +13,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springfr
         <!-- 配置连接池属性 -->
         <property name="driverClass" value="${driver}"/>
         <property name="jdbcUrl" value="${url}"/>
-        <property name="user" value="${username}"/>
+        <property name="user" value="${user}"/>
         <property name="password" value="${password}"/>
 
         <!-- c3p0连接池私有属性 -->
