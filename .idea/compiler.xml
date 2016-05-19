@@ -25,9 +25,8 @@
         <module name="seckill" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="seckill" target="1.5" />
-      <module name="seckill (1)" target="1.5" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="seckill" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
