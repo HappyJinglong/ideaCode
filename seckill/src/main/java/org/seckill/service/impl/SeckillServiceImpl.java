@@ -67,7 +67,7 @@ public class SeckillServiceImpl implements SeckillService {
                     endTime.getTime());
         }
         //转化特定字符串的过程，不可逆
-        String md5 = getMD5(seckillId);//TODO
+        String md5 = getMD5(seckillId);
         return new Exposer(true, md5, seckillId);
     }
 

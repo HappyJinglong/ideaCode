@@ -49,7 +49,7 @@ public class SeckillController {
         if (seckill == null) {
             return "forward:/seckill/list";
         }
-        model.addAttribute("detail", seckill);
+        model.addAttribute("seckill", seckill);
         return "detail";
     }
 
@@ -70,7 +70,7 @@ public class SeckillController {
         return result;
     }
 
-    @RequestMapping(value = "/{seckillId}/{md5}/excution",
+    @RequestMapping(value = "/{seckillId}/{md5}/execution",
             method = RequestMethod.POST,
             produces = {"application/json;charset=UTF-8"})
     @ResponseBody
@@ -87,18 +87,19 @@ public class SeckillController {
             return new SeckillResult<SeckillExcution>(true, excution);
         } catch (RepeatKillException e) {
             SeckillExcution excution = new SeckillExcution(seckillId, SeckillStatEnum.REPEAT_KILL);
-            return new SeckillResult<SeckillExcution>(false, excution);
+            return new SeckillResult<SeckillExcution>(true, excution);
         } catch (SeckillCloseException e) {
             SeckillExcution excution = new SeckillExcution(seckillId, SeckillStatEnum.END);
-            return new SeckillResult<SeckillExcution>(false, excution);
+            return new SeckillResult<SeckillExcution>(true, excution);
         } catch (SeckillException e) {
             logger.error(e.getMessage(), e);
             SeckillExcution excution = new SeckillExcution(seckillId, SeckillStatEnum.INNER_ERROR);
-            return new SeckillResult<SeckillExcution>(false, excution);
+            return new SeckillResult<SeckillExcution>(true, excution);
         }
     }
 
     @RequestMapping(value = "/time/now", method = RequestMethod.GET)
+    @ResponseBody
     public SeckillResult<Long> time() {
         Date now = new Date();
         return new SeckillResult<Long>(true, now.getTime());
